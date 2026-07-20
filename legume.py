@@ -47,4 +47,7 @@ class Vegetableperpiece(Vegetables):
     def piece_minus(self: Self, piece_minus: int) -> None:
         """méthode pour diminuer le nombre d'unité. utile pour actualiser le nombre de pieces si des clients en achète
         """
-        self.unit -= piece_minus
+        if self.unit >= piece_minus:
+            self.unit -= piece_minus
+        else:
+            print(f"je n'ai pas assez de d'unités. j'en ai que {self.unit}")
