@@ -14,3 +14,6 @@ class OrderBasket:
         Les produits seront ajoutés dans un second temps """
         self.ref_order_basket = ref_order_basket
         self.list_line_order = []
+
+    def add_line_order_basket(self, line_order_basket: LineOrderBasket):
+        self.list_line_order.append(line_order_basket)
