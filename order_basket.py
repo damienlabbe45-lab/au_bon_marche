@@ -7,10 +7,9 @@ class OrderBasket:
     """Classe Panier pour la commande d'un client"""
     ref_order_basket: str
     list_line_order: list[LineOrderBasket]
-    total: float
 
 
-    def __init__(self, ref_order_basket: int):
+    def __init__(self, ref_order_basket):
         """ Initialisation de la commande d'un client avec une référence.
         Les produits seront ajoutés dans un second temps """
         self.ref_order_basket = ref_order_basket
