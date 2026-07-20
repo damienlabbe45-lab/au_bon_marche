@@ -13,3 +13,4 @@ class OrderBasket:
         """ Initialisation de la commande d'un client avec une référence.
         Les produits seront ajoutés dans un second temps """
         self.ref_order_basket = ref_order_basket
+        self.list_line_order = []
