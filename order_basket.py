@@ -16,4 +16,6 @@ class OrderBasket:
         self.list_line_order = []
 
     def add_line_order_basket(self, line_order_basket: LineOrderBasket):
+        """ Méthode qui ajoute une ligne de commande au panier"""
         self.list_line_order.append(line_order_basket)
+    
