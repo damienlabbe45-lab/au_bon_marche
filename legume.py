@@ -52,3 +52,9 @@ class Vegetableperpiece(Vegetables):
             self.unit -= piece_minus
         else:
             print(f"je n'ai pas assez de d'unités. j'en ai que {self.unit}")
+
+    def piecepay(self: Self, piece: int) -> float | None:
+        number_piece = self.unit
+        self.piece_minus(piece)
+        if number_piece > piece:
+            return self.price * piece
