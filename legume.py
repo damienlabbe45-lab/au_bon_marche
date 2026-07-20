@@ -3,6 +3,7 @@ from typing import Self
 
 class Vegetables():
     """classe des fruits et légumes"""
+
     def __init__(self: Self, name_vegetable: str, price: float) -> None:
         """on initialise la classe avec son nom et son prix"""
         self.name_vegetable = name_vegetable
@@ -16,9 +17,10 @@ class Vegetables():
 
 class Vegetablebykg(Vegetables):
     """il s'agit des fruits et légumes qu'on met avec le poids"""
-    def __init__(self: Self, name_vegetable: str, weight: float) -> None:
+
+    def __init__(self: Self, name_vegetable: str, price, weight: float) -> None:
         """on appelle la méthode la classe mère puis ensuite, on rajoute le poids"""
-        super().__init__(name_vegetable)
+        super().__init__(name_vegetable, price)
         self.weight = weight
 
     def __repr__(self: Self):
@@ -29,3 +31,9 @@ class Vegetablebykg(Vegetables):
     def weight_minus(self: Self, weight_minus) -> None:
         """la méthode permet de dimunier le poids. sera utile pour actualiser le poids si des clients en prend """
         self.weight -= weight_minus
+
+
+class Vegetableperpiece(Vegetables):
+    def __init__(self: Self, name_vegetable: str, price, unit: int) -> None:
+        super().__init__(name_vegetable, price)
+        self.unit = unit
