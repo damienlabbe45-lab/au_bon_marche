@@ -14,13 +14,13 @@ class Customer:
         """ Méthode pour instancier un nouveau client, paramètres attendus first_name, et last_name """
         self.first_name = first_name
         self.last_name = last_name
-        today = date.today()
+        today = str(date.today())
         reference = self.first_name + today
-        self.orderBasket = OrderBasket(self, reference)
+        self.orderBasket = OrderBasket(reference)
 
 
     def __repr__(self):
         """ Méthode pour représenter un client """
-        nom = type(self).__name__
-        return f"{nom}{self.last_name} - {self.first_name}"
+        nom_classe = type(self).__name__
+        return f"{nom_classe} {self.last_name} - {self.first_name}"
 
