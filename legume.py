@@ -33,6 +33,12 @@ class Vegetablebykg(Vegetables):
         else:
             print(f"il me reste juste que {self.weight}.")
 
+    def weightpay(self: Self, weight: float) -> float | None:
+        number_weight = self.weight
+        self.weight_minus(weight)
+        if number_weight > weight:
+            return self.price * weight
+
 
 class Vegetableperpiece(Vegetables):
     """on appelle la méthode la classe mère puis on ajoute le nombre d'unités"""
