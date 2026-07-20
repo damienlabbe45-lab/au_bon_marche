@@ -4,12 +4,12 @@ from typing import Self
 class Vegetables():
     """classe des fruits et légumes"""
     def __init__(self: Self, name_vegetable: str, price: float) -> None:
-        """on initialise la classe avec son nom"""
+        """on initialise la classe avec son nom et son prix"""
         self.name_vegetable = name_vegetable
         self.price = price
 
     def __repr__(self: Self):
-        """on indique pour le print, on fait juste son nom"""
+        """on indique pour le print, on fait juste son nom puis ensuite le prix"""
         print(self.name_vegetable)
         print(self.price)
 
