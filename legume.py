@@ -38,6 +38,7 @@ class Vegetablebykg(Vegetables):
         self.weight_minus(weight)
         if number_weight > weight:
             return self.price * weight
+        return None
 
 
 class Vegetableperpiece(Vegetables):
@@ -64,3 +65,4 @@ class Vegetableperpiece(Vegetables):
         self.piece_minus(piece)
         if number_piece > piece:
             return self.price * piece
+        return None
