@@ -1,11 +1,12 @@
 from dataclasses import dataclass
-
+from order_basket import OrderBasket
 
 @dataclass
 class Customer:
     """Classe Client"""
     first_name: str
     last_name: str
+    orderBasket: OrderBasket
 
 
 def __init__(self, first_name, last_name):
