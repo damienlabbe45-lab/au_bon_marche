@@ -34,13 +34,17 @@ class Vegetablebykg(Vegetables):
 
 
 class Vegetableperpiece(Vegetables):
+    """on appelle la méthode la classe mère puis on ajoute le nombre d'unité"""
     def __init__(self: Self, name_vegetable: str, price, unit: int) -> None:
         super().__init__(name_vegetable, price)
         self.unit = unit
 
     def __repr__(self: Self):
+        """on appelle la méthode la classe mère puis on rajoute le nombre d'unité"""
         super().__repr__()
         print(self.unit)
 
     def piece_minus(self: Self, piece_minus: int) -> None:
+        """méthode pour diminuer le nombre d'unité. utile pour actualiser le nombre de pieces si des clients en achète
+        """
         self.unit -= piece_minus
