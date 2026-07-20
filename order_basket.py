@@ -5,7 +5,7 @@ from line_order_basket import LineOrderBasket
 @dataclass
 class OrderBasket:
     """Classe Panier pour la commande d'un client"""
-    ref_order_basket: int
+    ref_order_basket: str
     list_line_order: list[LineOrderBasket]
     total: float
 
