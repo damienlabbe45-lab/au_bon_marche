@@ -28,7 +28,7 @@ class Vegetablebykg(Vegetables):
         super().__repr__()
         print(self.weight)
 
-    def weight_minus(self: Self, weight_minus) -> None:
+    def weight_minus(self: Self, weight_minus:float) -> None:
         """la méthode permet de dimunier le poids. sera utile pour actualiser le poids si des clients en prend """
         self.weight -= weight_minus
 
@@ -37,3 +37,12 @@ class Vegetableperpiece(Vegetables):
     def __init__(self: Self, name_vegetable: str, price, unit: int) -> None:
         super().__init__(name_vegetable, price)
         self.unit = unit
+
+
+    def __repr__(self: Self)
+        super().__repr__()
+        print(self.unit)
+
+
+    def piece_minus(self: Self, piece_minus:int) -> None:
+        self.unit -= piece_minus
