@@ -30,7 +30,10 @@ class Vegetablebykg(Vegetables):
 
     def weight_minus(self: Self, weight_minus: float) -> None:
         """la méthode permet de dimunier le poids. sera utile pour actualiser le poids si des clients en prend """
-        self.weight -= weight_minus
+        if self.weight >= weight_minus:
+            self.weight -= weight_minus
+        else:
+            print(f"il me reste juste que {self.weight}.")
 
 
 class Vegetableperpiece(Vegetables):
