@@ -10,7 +10,7 @@ class OrderBasket:
     total: float
 
 
-def __init__(self, ref_order_basket: int):
-    """ Initialisation de la commande d'un client avec une référence.
-    Les produits seront ajoutés dans un second temps """
-    self.ref_order_basket = ref_order_basket
+    def __init__(self, ref_order_basket: int):
+        """ Initialisation de la commande d'un client avec une référence.
+        Les produits seront ajoutés dans un second temps """
+        self.ref_order_basket = ref_order_basket
