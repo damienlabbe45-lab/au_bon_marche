@@ -24,21 +24,25 @@ def get_str_input(prompt):
 
 
 def get_arrival_customer():
+    """ Fonction qui permet à un client de saisir son nom et son prénom """
     customer_last_name = get_str_input("Entrez le nom du client: ")
     customer_first_name = get_str_input("Entrez le prénom du client: ")
     customer = Customer(customer_first_name, customer_last_name)
-    print(f"Bonjour {customer.first_name} {customer.last_name}")
+    # print(f"Bonjour {customer.first_name} {customer.last_name}")
     return customer
 
 
 def add_vegetable_to_order_basket_customer(customer, vegetable, quantity):
+    """ Fonction qui permet d'ajouter un légume et une quantité dans le panier"""
     lineOrderBasket = LineOrderBasket(vegetable, quantity)
     customer.order_basket.add_line_order_basket(lineOrderBasket)
 
 
 def print_order_basket_customer(customer):
+    """ Fonction qui permet d'afficher le panier du client passé en paramètre"""
     print(customer.order_basket.get_order_basket())
 
 
 def print_receipt_customer(customer):
+    """ Fonction qui permet d'afficher le ticket de caisse du client"""
     print(customer.order_basket.get_receipt())
