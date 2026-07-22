@@ -71,7 +71,7 @@ class Vegetableperpiece(Vegetables):
         return None
 
 
-def init_vegetables() -> list[Vegetables]:
+def init_vegetables() -> list[Vegetableperpiece | Vegetablebykg]:
     """initialise les fruits et légumes"""
     return [
         Vegetablebykg("Clémentine", 2.90, 6),
