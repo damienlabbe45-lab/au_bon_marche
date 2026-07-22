@@ -1,10 +1,13 @@
 from dataclasses import dataclass
 from order_basket import OrderBasket
 from datetime import datetime, date
+from typing import ClassVar
 
 @dataclass
 class Customer:
     """Classe Client"""
+    customers: ClassVar[list['Customer']] = []
+
     first_name: str
     last_name: str
     orderBasket: OrderBasket
@@ -17,6 +20,7 @@ class Customer:
         today = str(date.today())
         reference = self.first_name + today
         self.orderBasket = OrderBasket(reference)
+        Customer.customers.append(self)
 
 
     def __repr__(self):
