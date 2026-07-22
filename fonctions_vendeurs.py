@@ -44,18 +44,25 @@ def input_client_piece(text: str, vegetable: Vegetableperpiece) -> int:
 
 
 def input_client(merchant: Merchant, customer: Customer) -> None:
-    vegetable_customer = input_client_vegetable("Veillez choisir un légume parmis " +
-                                                f"{', '.join(v.name_vegetable for v in merchant.vegetable)}.", merchant)
-    if isinstance(vegetable_customer, Vegetablebykg):
-        number = input_client_kg(
-            f" veillez indiquer combien de kg , vous voulez pour {
-            vegetable_customer.name_vegetable}" + f" en sachant que c'est maximun {vegetable_customer.weight}.",
-            vegetable_customer)
-    elif isinstance(vegetable_customer, Vegetableperpiece):
-        number = input_client_piece(f"Veillez indiquer combien de {vegetable_customer.name_vegetable}, vous voulez"
-                                    + f" en sachant que le maximun c'est {vegetable_customer.unit}", vegetable_customer)
-    add_vegetable_to_order_basket_customer(customer, vegetable_customer, number)
-    merchant.sold_vegetable(vegetable_customer, number, customer)
+    while input_bool():
+        vegetable_customer = input_client_vegetable("Veillez choisir un légume parmis " +
+                                                    f"{', '.join(v.name_vegetable for v in merchant.vegetable)}.",
+                                                    merchant)
+        if isinstance(vegetable_customer, Vegetablebykg):
+            number = input_client_kg(
+                f" veillez indiquer combien de kg , vous voulez pour {
+                vegetable_customer.name_vegetable}" + f" en sachant que c'est maximun {vegetable_customer.weight}.",
+                vegetable_customer)
+        elif isinstance(vegetable_customer, Vegetableperpiece):
+            number = input_client_piece(f"Veillez indiquer combien de {vegetable_customer.name_vegetable}, vous voulez"
+                                        + f" en sachant que le maximun c'est {vegetable_customer.unit}",
+                                        vegetable_customer)
+            add_vegetable_to_order_basket_customer(customer, vegetable_customer, number)
+            merchant.sold_vegetable(vegetable_customer, number, customer)
 
 
-
+def input_bool() -> bool:
+    text: str = ""
+    while text not in ["oui", "non"]:
+        text = input("voulez vous contunier d'acheter (Oui ou Non)?")
+    return text == "oui"
