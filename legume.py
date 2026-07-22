@@ -24,7 +24,7 @@ class Vegetablebykg(Vegetables):
 
     def __repr__(self: Self):
         """on ajoute le poids puis d'avant d'appeler la méthode de la classe mère"""
-        return f"{self.weight} de {super().__repr__()}"
+        return f"{self.weight} kg de {super().__repr__()}"
 
     def weight_minus(self: Self, weight_minus: float) -> None:
         """la méthode permet de diminuer le poids. Sera utile pour actualiser le poids si des clients en prennent """
@@ -66,3 +66,28 @@ class Vegetableperpiece(Vegetables):
         if number_piece > piece:
             return self.price * piece
         return None
+
+
+def init_vegetables() -> list[Vegetables]:
+    """initialise les fruits et légumes"""
+    return [
+        Vegetablebykg("Clémentine", 2.90, 6),
+        Vegetablebykg("Datte", 7.00, 4),
+        Vegetablebykg("Grenade", 3.5, 3),
+        Vegetablebykg("Kaki", 4.50, 3),
+        Vegetablebykg("Kiwi", 3.50, 5),
+        Vegetablebykg("Mandarine", 2.80, 6),
+        Vegetablebykg("Orange", 1.50, 8),
+        Vegetableperpiece("Pamplemousse", 2.00, 8),
+        Vegetablebykg("Poire", 2.50, 5),
+        Vegetablebykg("Pomme", 1.50, 8),
+        Vegetablebykg("Carotte", 1.30, 7),
+        Vegetablebykg("Choux de Bruxelles", 4.00, 4),
+        Vegetableperpiece("Chou vert", 2.50, 12),
+        Vegetableperpiece("Courge butternut", 2.50, 6),
+        Vegetablebykg("Endive", 2.50, 5),
+        Vegetablebykg("Épinard", 2.60, 4),
+        Vegetablebykg("Poireau", 1.20, 5),
+        Vegetableperpiece("Potiron", 2.50, 6),
+        Vegetableperpiece("Radis Noir", 5.00, 10),
+        Vegetablebykg("Salsifis", 2.50, 3)]
