@@ -64,5 +64,5 @@ def input_client(merchant: Merchant, customer: Customer) -> None:
 def input_bool() -> bool:
     text: str = ""
     while text not in ["oui", "non"]:
-        text = input("voulez vous contunier d'acheter (Oui ou Non)?")
+        text = input("voulez vous contunier d'acheter (Oui ou Non)?").lower().strip()
     return text == "oui"
