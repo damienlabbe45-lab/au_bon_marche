@@ -13,7 +13,8 @@ class LineOrderBasket:
         self.vegetable_ordered = vegetable
         self.quantity_ordered = quantity_ordered
 
-
     def get_sub_total_line(self):
+        """Fonction qui retourne le sous-total de la ligne du panier"""
         subtotal = self.vegetable_ordered.price * self.quantity_ordered
         return subtotal
+    
