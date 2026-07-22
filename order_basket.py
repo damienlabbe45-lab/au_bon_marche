@@ -8,18 +8,15 @@ class OrderBasket:
     ref_order_basket: str
     list_line_order: list[LineOrderBasket]
 
-
     def __init__(self, ref_order_basket):
         """ Initialisation de la commande d'un client avec une référence.
         Les produits seront ajoutés dans un second temps """
         self.ref_order_basket = ref_order_basket
         self.list_line_order = []
 
-
     def add_line_order_basket(self, line_order_basket: LineOrderBasket):
         """ Méthode qui ajoute une ligne de commande au panier"""
         self.list_line_order.append(line_order_basket)
-
 
     def get_order_basket(self):
         """ Méthode qui permet d'afficher le panier pour le client """
@@ -36,15 +33,15 @@ class OrderBasket:
         order_basket_beautiful += line_separ
         return order_basket_beautiful
 
-
     def get_total(self):
+        """Fonction qui calcule le total du panier du client"""
         total = 0
         for line in self.list_line_order:
             total += line.get_sub_total_line()
         return total
-        
-    
+
     def get_receipt(self):
+        """Fonction qui renvoie une chaine correspondant au ticket de caisse du client"""
         receipt = "Ticket de caisse \n"
         for line in self.list_line_order:
             receipt += f"Légume : {line.vegetable_ordered.name_vegetable} - "
@@ -53,3 +50,4 @@ class OrderBasket:
             receipt += f"Sous-total : {line.get_sub_total_line()}\n"
         receipt += f"TOTAL : {self.get_total()}\n"
         return receipt
+    
