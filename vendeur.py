@@ -1,5 +1,6 @@
 from legume import Vegetablebykg, Vegetableperpiece
 from typing import Self
+from customer import Customer
 
 
 class Merchant:
@@ -15,6 +16,19 @@ class Merchant:
     def offer(self: Self) -> None:
         for vegetable in self.vegetable:
             print(vegetable.__repr__())
+
+    def sold_vegetable(self: Self, vegetable_customer: Vegetableperpiece | Vegetablebykg, number: int | float,
+                       customer:Customer) -> float:
+        vegetable = self.vegetable.index(vegetable_customer)
+        if isinstance(vegetable, Vegetableperpiece):
+            gold = vegetable.piecepay(int(number))
+        elif isinstance(vegetable, Vegetablebykg):
+            gold = vegetable.weightpay(number)
+        self.monnaie += gold
+        self.sold.append(vegetable)
+        return gold
+
+
 
 
 
