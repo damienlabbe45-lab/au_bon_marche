@@ -1,7 +1,6 @@
 from legume import Vegetablebykg, Vegetableperpiece
 from typing import Self
 from customer import Customer
-from operator import attrgetter
 
 
 class Merchant:
@@ -10,7 +9,7 @@ class Merchant:
     def __init__(self: Self, name: str, list_vegetable: list[Vegetableperpiece | Vegetablebykg]) -> None:
         self.name = name
         self.vegetable = list_vegetable
-        self.receipt: list[str] = []
+        self.receipt: list[Customer] = []
         self.monnaie: float = 0
         self.sold: list[Vegetableperpiece | Vegetablebykg] = []
 
@@ -19,20 +18,18 @@ class Merchant:
             print(vegetable.__repr__())
 
     def sold_vegetable(self: Self, vegetable_customer: Vegetableperpiece | Vegetablebykg, number: int | float,
-                       customer:Customer) -> float:
-        vegetable_index = list(map(attrgetter("name"), vegetable_customer)).index(vegetable_customer)
-        vegetable = self.vegetable[vegetable_index]
-        if isinstance(vegetable, Vegetableperpiece):
-            gold = vegetable.piecepay(int(number))
-            if vegetable.unit == 0:
-                self.vegetable.remove(vegetable)
-        elif isinstance(vegetable, Vegetablebykg):
-            gold = vegetable.weightpay(number)
-            if vegetable.weight == 0:
-                self.vegetable.remove(vegetable)
+                       customer:Customer) -> None:
+        if isinstance(vegetable_customer, Vegetableperpiece):
+            gold = vegetable_customer.piecepay(int(number))
+            if vegetable_customer.unit == 0:
+                self.vegetable.remove(vegetable_customer)
+        elif isinstance(vegetable_customer, Vegetablebykg):
+            gold = vegetable_customer.weightpay(number)
+            if vegetable_customer.weight == 0:
+                self.vegetable.remove(vegetable_customer)
         self.monnaie += gold
-        self.sold.append(vegetable)
-        return gold
+        self.sold.append(vegetable_customer)
+        self.receipt.append(customer)
 
 
 
