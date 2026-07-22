@@ -27,7 +27,8 @@ class Customer:
         nom_classe = type(self).__name__
         return f"{nom_classe} {self.last_name} - {self.first_name}"
 
-    def get_print_list_customers(self):
+    @staticmethod
+    def get_print_list_customers():
         """ Fonction qui affiche la liste des clients et le montant total de leurs achats"""
         print_list_customers = ""
         for cust in Customer.customers:
