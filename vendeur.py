@@ -12,7 +12,9 @@ class Merchant:
         self.monnaie: float = 0
         self.sold: list[Vegetableperpiece | Vegetablebykg] = []
 
-
+    def offer(self: Self) -> None:
+        for vegetable in self.vegetable:
+            print(vegetable.__repr__())
 
 
 
