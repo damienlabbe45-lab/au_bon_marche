@@ -13,8 +13,8 @@ class Merchant:
         self.sold: list[Vegetableperpiece | Vegetablebykg] = []
 
     def offer(self: Self) -> None:
-        for vegetable in self.vegetable:
-            print(vegetable.__repr__())
-
-
-
+        if len(self.vegetable) > 0:
+            for vegetable in self.vegetable:
+                print(vegetable.__repr__())
+        else:
+            print("j'ai vendu tout mon stock")
