@@ -18,3 +18,8 @@ class Merchant:
                 print(vegetable.__repr__())
         else:
             print("j'ai vendu tout mon stock")
+
+    def sales_journey(self: Self, tickets: str) -> None:
+        ticket = tickets.split("-")
+        self.receipt.extend(ticket)
+        self.monnaie += sum(float(item.split(":")[-1].strip())for item in ticket if item.strip() and ":" in item)
