@@ -6,11 +6,11 @@ from re import match
 from operator import attrgetter
 
 
-def input_client_vegetable(text: str, merchant: Merchant) -> str:
+def input_client_vegetable(text: str, merchant: Merchant) -> Vegetableperpiece | Vegetablebykg:
     text_user = input(text)
-    while text_user not in list(map(attrgetter("name"), merchant.vegetable)):
+    while text_user not in list(map(attrgetter("name_vegetable"), merchant.vegetable)):
         text_user = input(text)
-    return text_user
+    return next(v for v in merchant.vegetable if v.name_vegetable == text_user)
 
 
 def input_client_kg(text: str, vegetable: Vegetablebykg) -> float:
@@ -22,7 +22,7 @@ def input_client_kg(text: str, vegetable: Vegetablebykg) -> float:
     while vegetable.weight < text_user:
         text_user = input(text)
         if bool(match(r"^\d+([;,]\d*)?$", text_user)):
-            text_user = float(text_user)
+            text_user = float(text_user.replace(",", "."))
         else:
             text_user = 1000000
     return text_user
@@ -43,7 +43,17 @@ def input_client_piece(text: str, vegetable: Vegetableperpiece) -> int:
     return text_user
 
 
-def input_client(merchant:Merchant, customer:Customer) -> None:
+def input_client(merchant: Merchant, customer: Customer) -> None:
     vegetable_customer = input_client_vegetable("Veillez choisir un légume parmis " +
-                                                f"{', '.join(
-                                                    f'{vege for vege in list(map(attrgetter("name"), merchant.vegetable))}"})
+                                                f"{', '.join(v.name_vegetable for v in merchant.vegetable)}.", merchant)
+    if isinstance(vegetable_customer, Vegetablebykg):
+        number = input_client_kg(
+            f" veillez indiquer combien de kg , vous voulez pour {
+            vegetable_customer.name_vegetable}" + f" en sachant que c'est maximun {vegetable_customer.weight}.",
+            vegetable_customer)
+    elif isinstance(vegetable_customer, Vegetableperpiece):
+        number = input_client_piece(f"Veillez indiquer combien de {vegetable_customer.name_vegetable}, vous voulez"
+                                    + f" en sachant que le maximun c'est {vegetable_customer.unit}", vegetable_customer)
+    add_vegetable_to_order_basket_customer(customer, vegetable_customer, number)
+    merchant.sold_vegetable(vegetable_customer, number, customer)
+
