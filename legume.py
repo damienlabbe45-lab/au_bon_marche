@@ -34,6 +34,7 @@ class Vegetablebykg(Vegetables):
             print(f"il me reste juste que {self.weight}.")
 
     def weightpay(self: Self, weight: float) -> float | None:
+        """fonction servant à définir ce qu'il faut payer pour un fruit et légume en fonction du poids"""
         number_weight = self.weight
         self.weight_minus(weight)
         if number_weight > weight:
@@ -61,6 +62,8 @@ class Vegetableperpiece(Vegetables):
             print(f"je n'ai pas assez de d'unités. j'en ai que {self.unit}")
 
     def piecepay(self: Self, piece: int) -> float | None:
+        """fonction servant à définir ce qu'il faut payer pour un fruit et légume en fonction du nombre
+        d'unité qu'on a pris"""
         number_piece = self.unit
         self.piece_minus(piece)
         if number_piece > piece:
