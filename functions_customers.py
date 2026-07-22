@@ -1,4 +1,9 @@
 from customer import Customer
+from order_basket import OrderBasket
+from line_order_basket import LineOrderBasket
+from legume import Vegetables
+
+
 """ Séverine Hori Maitrehut
 Fonctions qui concernent le menu pour l'arrivée du client
 """
@@ -24,3 +29,16 @@ def get_arrival_customer():
     customer = Customer(customer_first_name, customer_last_name)
     print(f"Bonjour {customer.first_name} {customer.last_name}")
     return customer
+
+
+def add_vegetable_to_order_basket_customer(customer, vegetable, quantity):
+    lineOrderBasket = LineOrderBasket(vegetable, quantity)
+    customer.order_basket.add_line_order_basket(lineOrderBasket)
+
+
+def print_order_basket_customer(customer):
+    print(customer.order_basket.get_order_basket())
+
+
+def print_receipt_customer(customer):
+    print(customer.order_basket.get_receipt())
