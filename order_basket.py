@@ -23,12 +23,17 @@ class OrderBasket:
 
     def print_order_basket(self):
         """ Méthode qui permet d'afficher le panier pour le client """
-        order_basket_beautiful = (" Panier \n\n ")
-        order_basket_beautiful += "|   Légume choisi  |     Quantité      |\n"
+        line_separ = "-"*58+"\n"
+        order_basket_beautiful = " "*25 + "Panier\n"
+        order_basket_beautiful += line_separ
+        order_basket_beautiful += "|Légume choisi     |      Prix        |    Quantité      |\n"
+        order_basket_beautiful += line_separ
         for line_order_basket in self.list_line_order:
-            legume = line_order_basket.vegetable_ordered
+            legume = line_order_basket.vegetable_ordered.name_vegetable
+            legume_prix = line_order_basket.vegetable_ordered.price
             legume_qty = line_order_basket.quantity_ordered
-            order_basket_beautiful += f"{legume}       |      {legume_qty:^10}|\n"
+            order_basket_beautiful += f"|{legume:<18}|{legume_prix:<18}|{legume_qty:<18}|\n"
+        order_basket_beautiful += line_separ
         print(order_basket_beautiful)
 
 
@@ -37,3 +42,14 @@ class OrderBasket:
         for line in self.list_line_order:
             total += line.get_sub_total_line()
         return total
+        
+    
+    def get_receipt(self):
+        receipt = "Ticket de caisse \n"
+        for line in self.list_line_order:
+            receipt += f"Légume : {line.vegetable_ordered.name_vegetable} - "
+            receipt += f"Prix : {line.vegetable_ordered.price} - "
+            receipt += f"Quantité commandée : {line.quantity_ordered}\n"
+            receipt += f"Sous-total : {line.get_sub_total_line()}\n"
+        receipt += f"TOTAL : {self.get_total()}\n"
+        return receipt
