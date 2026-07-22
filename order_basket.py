@@ -30,3 +30,10 @@ class OrderBasket:
             legume_qty = line_order_basket.quantity_ordered
             order_basket_beautiful += f"{legume}       |      {legume_qty:^10}|\n"
         print(order_basket_beautiful)
+
+
+    def get_total(self):
+        total = 0
+        for line in self.list_line_order:
+            total += line.get_sub_total_line()
+        return total
