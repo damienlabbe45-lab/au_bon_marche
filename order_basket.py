@@ -41,7 +41,7 @@ class OrderBasket:
         total = 0
         for line in self.list_line_order:
             total += line.get_sub_total_line()
-        return total
+        return total 
         
     
     def get_receipt(self):
