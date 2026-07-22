@@ -1,6 +1,7 @@
 from legume import Vegetablebykg, Vegetableperpiece
 from typing import Self
 from customer import Customer
+from operator import attrgetter
 
 
 class Merchant:
@@ -19,11 +20,16 @@ class Merchant:
 
     def sold_vegetable(self: Self, vegetable_customer: Vegetableperpiece | Vegetablebykg, number: int | float,
                        customer:Customer) -> float:
-        vegetable = self.vegetable.index(vegetable_customer)
+        vegetable_index = list(map(attrgetter("name"), vegetable_customer)).index(vegetable_customer)
+        vegetable = self.vegetable[vegetable_index]
         if isinstance(vegetable, Vegetableperpiece):
             gold = vegetable.piecepay(int(number))
+            if vegetable.unit == 0:
+                self.vegetable.remove(vegetable)
         elif isinstance(vegetable, Vegetablebykg):
             gold = vegetable.weightpay(number)
+            if vegetable.weight == 0:
+                self.vegetable.remove(vegetable)
         self.monnaie += gold
         self.sold.append(vegetable)
         return gold
