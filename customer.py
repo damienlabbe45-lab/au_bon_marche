@@ -34,3 +34,4 @@ class Customer:
         for cust in Customer.customers:
             print_list_customers += f"- {cust.first_name} {cust.last_name} : {cust.order_basket.get_total()}"
         return print_list_customers
+
