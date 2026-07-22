@@ -63,7 +63,7 @@ class Vegetableperpiece(Vegetables):
 
     def piecepay(self: Self, piece: int) -> float | None:
         """fonction servant à définir ce qu'il faut payer pour un fruit et légume en fonction du nombre
-        d'unité qu'on a pris"""
+        d'unités qu'on a pris"""
         number_piece = self.unit
         self.piece_minus(piece)
         if number_piece > piece:
