@@ -24,7 +24,7 @@ class Vegetablebykg(Vegetables):
 
     def __str__(self: Self):
         """on ajoute le poids puis d'avant d'appeler la méthode de la classe mère"""
-        return f"{self.weight} kg de {super().__repr__()}"
+        return f"{self.weight} kg de {super().__str__()}"
 
     def weight_minus(self: Self, weight_minus: float) -> None:
         """la méthode permet de diminuer le poids. Sera utile pour actualiser le poids si des clients en prennent """
