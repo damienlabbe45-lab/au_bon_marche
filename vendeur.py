@@ -11,11 +11,10 @@ class Merchant:
         self.vegetable = list_vegetable
         self.receipt: list[Customer] = []
         self.monnaie: float = 0
-        self.sold: list[Vegetableperpiece | Vegetablebykg] = []
 
     def offer(self: Self) -> None:
         for vegetable in self.vegetable:
-            print(vegetable.__repr__())
+            print(vegetable.__str__())
 
     def sold_vegetable(self: Self, vegetable_customer: Vegetableperpiece | Vegetablebykg, number: int | float,
                        customer:Customer) -> None:
@@ -28,8 +27,13 @@ class Merchant:
             if vegetable_customer.weight == 0:
                 self.vegetable.remove(vegetable_customer)
         self.monnaie += gold
-        self.sold.append(vegetable_customer)
         self.receipt.append(customer)
+
+    def end_journey(self: Self) -> None:
+        self.offer()
+        print(f"j'ai gagné {self.monnaie} aujourd'hui!!!!!!!!! ^^")
+        self.monnaie = 0
+        print(f"j'ai eu {len(self.receipt)} pig... euh clients aujourd'hui ! '^^")
 
 
 
