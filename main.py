@@ -35,7 +35,7 @@ def main():
             print("Clients et leurs achats du jour : ")
             print(Customer.get_print_list_customers())
             print("Stock restant disponible : ")
-            # TODO Damien
+            merchant.end_journey()
 
         elif (choix == 3):
             print("Merci, et à bientôt! ")
