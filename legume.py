@@ -9,7 +9,7 @@ class Vegetables:
         self.name_vegetable = name_vegetable
         self.price = price
 
-    def __repr__(self: Self):
+    def __str__(self: Self):
         """on indique pour le print, on fait juste son nom puis le prix"""
         return f"{self.name_vegetable} \n pour {self.price} euros"
 
@@ -22,7 +22,7 @@ class Vegetablebykg(Vegetables):
         super().__init__(name_vegetable, price)
         self.weight = weight
 
-    def __repr__(self: Self):
+    def __str__(self: Self):
         """on ajoute le poids puis d'avant d'appeler la méthode de la classe mère"""
         return f"{self.weight} kg de {super().__repr__()}"
 
@@ -37,7 +37,7 @@ class Vegetablebykg(Vegetables):
         """fonction servant à définir ce qu'il faut payer pour un fruit et légume en fonction du poids"""
         number_weight = self.weight
         self.weight_minus(weight)
-        if number_weight > weight:
+        if number_weight >= weight:
             return self.price * weight
         return None
 
@@ -49,9 +49,9 @@ class Vegetableperpiece(Vegetables):
         super().__init__(name_vegetable, price)
         self.unit = unit
 
-    def __repr__(self: Self):
+    def __str__(self: Self):
         """on met le nombre d'unités puis on appelle la classe mère"""
-        return f"{self.unit} {super().__repr__()}"
+        return f"{self.unit} {super().__str__()}"
 
     def piece_minus(self: Self, piece_minus: int) -> None:
         """méthode pour diminuer le nombre d'unités. Utile pour actualiser le nombre de pieces si des clients en achète
@@ -66,7 +66,7 @@ class Vegetableperpiece(Vegetables):
         d'unité qu'on a pris"""
         number_piece = self.unit
         self.piece_minus(piece)
-        if number_piece > piece:
+        if number_piece >= piece:
             return self.price * piece
         return None
 
