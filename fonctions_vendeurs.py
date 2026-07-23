@@ -1,6 +1,7 @@
 from vendeur import Merchant
 from legume import Vegetableperpiece, Vegetablebykg
 from functions_customers import add_vegetable_to_order_basket_customer
+from functions_customers import print_order_basket_customer
 from customer import Customer
 from re import match
 from operator import attrgetter
@@ -83,6 +84,7 @@ def input_client(merchant: Merchant, customer: Customer) -> None:
                                         vegetable_customer)
         add_vegetable_to_order_basket_customer(customer, vegetable_customer, number)
         merchant.sold_vegetable(vegetable_customer, number, customer)
+        print_order_basket_customer(customer)
         is_continue = input_bool()
 
 def input_bool() -> bool:
