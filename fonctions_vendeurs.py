@@ -38,13 +38,13 @@ def input_client_vegetable(text: str, merchant: Merchant) -> Vegetableperpiece |
 
 def input_client_kg(text: str, vegetable: Vegetablebykg) -> float:
     text_user = input(text)
-    if bool(match(r"^\d+([;,]\d*)?$", text_user)):
+    if bool(match(r"^\d+([.,]\d*)?$", text_user)):
         text_user = float(text_user.replace(",", "."))
     else:
         text_user = 1000000
     while vegetable.weight < text_user:
         text_user = input(text)
-        if bool(match(r"^\d+([;,]\d*)?$", text_user)):
+        if bool(match(r"^\d+([.,]\d*)?$", text_user)):
             text_user = float(text_user.replace(",", "."))
         else:
             text_user = 1000000
@@ -75,11 +75,11 @@ def input_client(merchant: Merchant, customer: Customer) -> None:
         if isinstance(vegetable_customer, Vegetablebykg):
             number = input_client_kg(
                 f" veillez indiquer combien de kg , vous voulez pour {
-                vegetable_customer.name_vegetable}" + f" en sachant que c'est maximun {vegetable_customer.weight}.",
+                vegetable_customer.name_vegetable}" + f" en sachant que c'est maximum {vegetable_customer.weight}.",
                 vegetable_customer)
         elif isinstance(vegetable_customer, Vegetableperpiece):
             number = input_client_piece(f"Veillez indiquer combien de {vegetable_customer.name_vegetable}, vous voulez"
-                                        + f" en sachant que le maximun c'est {vegetable_customer.unit}",
+                                        + f" en sachant que le maximum c'est {vegetable_customer.unit}",
                                         vegetable_customer)
         add_vegetable_to_order_basket_customer(customer, vegetable_customer, number)
         merchant.sold_vegetable(vegetable_customer, number, customer)
