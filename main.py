@@ -1,10 +1,8 @@
 from vendeur import Merchant
 from legume import init_vegetables
 from customer import Customer
-from functions_customers import get_arrival_customer
-from functions_customers import print_receipt_customer
-from fonctions_vendeurs import input_client
-from fonctions_vendeurs import input_principal_menu
+from functions_customers import get_arrival_customer, print_receipt_customer
+from fonctions_vendeurs import input_client, input_principal_menu
 
 def main():
 
