@@ -28,7 +28,6 @@ def get_arrival_customer():
     customer_last_name = get_str_input("Entrez le nom du client: ")
     customer_first_name = get_str_input("Entrez le prénom du client: ")
     customer = Customer(customer_first_name, customer_last_name)
-    # print(f"Bonjour {customer.first_name} {customer.last_name}")
     return customer
 
 

@@ -80,8 +80,8 @@ def input_client(merchant: Merchant, customer: Customer) -> None:
             number = input_client_piece(f"Veillez indiquer combien de {vegetable_customer.name_vegetable}, vous voulez"
                                         + f" en sachant que le maximun c'est {vegetable_customer.unit}",
                                         vegetable_customer)
-            add_vegetable_to_order_basket_customer(customer, vegetable_customer, number)
-            merchant.sold_vegetable(vegetable_customer, number, customer)
+        add_vegetable_to_order_basket_customer(customer, vegetable_customer, number)
+        merchant.sold_vegetable(vegetable_customer, number, customer)
         is_continue = input_bool()
 
 def input_bool() -> bool:
