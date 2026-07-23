@@ -74,8 +74,8 @@ def input_client(merchant: Merchant, customer: Customer) -> None:
                                                     merchant)
         if isinstance(vegetable_customer, Vegetablebykg):
             number = input_client_kg(
-                f" veillez indiquer combien de kg , vous voulez pour {
-                vegetable_customer.name_vegetable}" + f" en sachant que c'est maximum {vegetable_customer.weight}.",
+                f" veillez indiquer combien de {
+                vegetable_customer.name_vegetable} en kilos vous voulez" + f" en sachant que c'est maximum {vegetable_customer.weight}.",
                 vegetable_customer)
         elif isinstance(vegetable_customer, Vegetableperpiece):
             number = input_client_piece(f"Veillez indiquer combien de {vegetable_customer.name_vegetable}, vous voulez"
