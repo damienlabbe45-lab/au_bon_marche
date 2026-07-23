@@ -27,7 +27,7 @@ class Merchant:
             if vegetable_customer.weight == 0:
                 self.vegetable.remove(vegetable_customer)
         self.monnaie += gold
-        self.receipt.append(customer)
+        self.receipt.append((customer.first_name, customer.last_name))
 
     def end_journey(self: Self) -> None:
         self.offer()
