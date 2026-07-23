@@ -29,7 +29,7 @@ class Vegetablebykg(Vegetables):
     def weight_minus(self: Self, weight_minus: float) -> None:
         """la méthode permet de diminuer le poids. Sera utile pour actualiser le poids si des clients en prennent """
         if self.weight >= weight_minus:
-            self.weight -= weight_minus
+            self.weight = round( self.weight - weight_minus, 2)
         else:
             print(f"il me reste juste que {self.weight}.")
 
@@ -38,7 +38,7 @@ class Vegetablebykg(Vegetables):
         number_weight = self.weight
         self.weight_minus(weight)
         if number_weight >= weight:
-            return self.price * weight
+            return round(self.price * weight, 2)
         return None
 
 
