@@ -19,7 +19,8 @@ def is_entry_int_ok(user_input, min_int, max_int):
 def input_principal_menu():
     """ Fonction qui demande à l'utilisateur de choisir une action
         -Gérer l'arrivée d'un client : 1
-        -Editer le bilan de la journée 2
+        -Editer le bilan de la journée : 2
+        -Quitter le programme : 3
     """
     input_menu = input("Bonjour.Menu :\n 1 Arrivée d'un client\n 2 Afficher le bilan de la journée\n 3 Quitter le programme\n")
     while not is_entry_int_ok(input_menu, 1, 3):
