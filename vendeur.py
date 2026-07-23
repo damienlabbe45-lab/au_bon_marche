@@ -33,7 +33,7 @@ class Merchant:
         self.offer()
         print(f"j'ai gagné {self.monnaie} euros aujourd'hui!!!!!!!!! ^^")
         self.monnaie = 0
-        print(f"j'ai eu {len(self.receipt)} pig... euh clients aujourd'hui ! '^^")
+        print(f"j'ai eu {len(set(self.receipt))} pig... euh clients aujourd'hui ! '^^")
 
 
 
