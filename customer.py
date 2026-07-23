@@ -32,6 +32,6 @@ class Customer:
         """ Fonction qui affiche la liste des clients et le montant total de leurs achats"""
         print_list_customers = ""
         for cust in Customer.customers:
-            print_list_customers += f"- {cust.first_name} {cust.last_name} : {cust.order_basket.get_total()}"
+            print_list_customers += f"- {cust.first_name} {cust.last_name} : {cust.order_basket.get_total()}\n"
         return print_list_customers
 
