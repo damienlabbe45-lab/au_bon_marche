@@ -31,7 +31,7 @@ class Merchant:
 
     def end_journey(self: Self) -> None:
         self.offer()
-        print(f"j'ai gagné {self.monnaie} aujourd'hui!!!!!!!!! ^^")
+        print(f"j'ai gagné {self.monnaie} euros aujourd'hui!!!!!!!!! ^^")
         self.monnaie = 0
         print(f"j'ai eu {len(self.receipt)} pig... euh clients aujourd'hui ! '^^")
 
